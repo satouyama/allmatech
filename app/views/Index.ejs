@@ -7,6 +7,7 @@
     <meta charset="utf-8">
 
     <link rel="stylesheet" type="text/css" href="/Content/css/estilo1.css">
+    <link rel="stylesheet" type="text/css" href="/Content/css/chat.css">
     <link rel="stylesheet" type="text/css" href="/Content/css/estilo.css">
     <link rel="stylesheet" href="/Content/css/owl.carousel.css">
     <link rel="stylesheet" href="/Content/css/bootstrap.min.css">
@@ -16,6 +17,8 @@
     <link rel="stylesheet" href="/Content/css/responsive.css">
 
     <script src="/Scripts/vendor/jquery-1.10.2.min.js"></script>
+
+
 
     <link rel="shortcut icon" href="/Content/img/icon.png" sizes="16x16">
 
@@ -236,6 +239,7 @@
 
 <script type="text/javascript" src="/Scripts/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="/Scripts/jquery.cycle.all.js"></script>
+<script src="/Scripts/chat.js"></script>
 <script type="text/javascript">
 
     $(function () {
@@ -251,6 +255,40 @@
 
     })
 </script>
+<div class="l_c_h">
+<div class="c_h">
+    <div class="left_c">
+          <div class="left right_c left_icons">
+                 <a href="#" class="mini" style="font-size:23px;">+</a>
+          </div>
+          <div class="left center_icons"><!--center_icons-->
+             posso ajudar?
+          </div><!--end center_icons-->
+      </div>
+      <div class="right right_c" style="width:35px;">
+        <a href="#" class="logout" title="End chat" name="" style="display:none;"><img src="chat/logout.png"></a>
+      </div>
+      <div class="clear"></div>
+  </div>
+  <div class="chat_container" style="display: none;">
+  <p class="no_provider">
+
+      Operadores Disponíveis
+          </p>
+
+<div class="chat_message" style="display: none; right :10px ; bottom : 30px; position : fixed">
+  <input type="hidden" class="my_user" value="">
+        </div>
+  <div class="chat_text_area" style="display:none;">
+        <textarea name="messag_send" class="messag_send" id="messag_send" placeholder="Enter Your Message and press CTRL"></textarea>
+      </div>
+    <div class="chat_entry">
+
+            <p style="text-align:left;">
+                <input type="submit" onclick="window.open(this.href='/chatForm', 'mywin','left=50,top=50,width=600,height=350,toolbar=0'); return false;" name="chat_submit"  class="chat_submit" id="chat_submit" value="Iniciar Chat">
+            </p>
+
+      </div>
 
 
 </body>
