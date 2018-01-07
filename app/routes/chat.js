@@ -1,28 +1,9 @@
-module.exports= function(app){
-app.get('/chat', function(req ,res){
-	var dadosForm = req.body;
-	
-		
-		
-	
-		app.get('io').emit(
-			'msgParaCliente',
-			{apelido: dadosForm.apelido, mensagem: ' acabou de entrar no chat'}
-		)
-	
-		res.render("chat", {dadosForm : dadosForm});
+const router = require('express').Router()
 
-});
-app.post('/chat', function(req ,res){
-	var dadosForm = req.body;
-	
-	
-		app.get('io').emit(
-			'msgParaCliente',
-			{apelido: dadosForm.apelido, mensagem: ' acabou de entrar no chat'}
-		)
-	
-		res.render("chat", {dadosForm : dadosForm});
+router.route('/')
 
-});
-}
+.post((req ,res) => {
+	res.render("chat", {dadosForm: req.body})
+})
+
+module.exports = router

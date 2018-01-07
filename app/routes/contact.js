@@ -1,7 +1,9 @@
-module.exports = function(app){
+const router = require('express').Router()
 
- app.get('/Contato', (req, res)=> {
-       res.render('Contact');
- });
+router.route('/')
 
-}
+.get((req, res) => {
+	res.render('Contact')
+})
+
+module.exports = router
