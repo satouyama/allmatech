@@ -3,7 +3,7 @@ const router = require('express').Router()
 router.route('/')
 
 .get((req, res) => {
-	res.render('formChat')
+	res.render('Index')
 })
 
 module.exports = router

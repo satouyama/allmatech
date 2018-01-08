@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "allmatech",
   "version": "1.0.0",
   "description": "",
@@ -16,4 +17,19 @@
     "nodemon": "^1.14.8",
     "socket.io": "^2.0.4"
   }
+=======
+	"name": "allmatech",
+	"version": "1.0.0",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js"
+	},
+	"license": "ISC",
+	"dependencies": {
+		"body-parser": "^1.18.2",
+		"ejs": "^2.5.7",
+		"express": "^4.16.2",
+		"socket.io": "^2.0.4"
+	}
+>>>>>>> a530ea3046e2a17e6b41a00cb2de5877f3025f95
 }
