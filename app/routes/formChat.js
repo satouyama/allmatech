@@ -1,9 +1,7 @@
-const router = require('express').Router()
+module.exports = function(app){
 
-router.route('/')
-
-.get((req, res) => {
-	res.render('formChat')
-})
-
-module.exports = router
+	app.get('/chatForm', function(req,res){
+	  res.render('formChat');
+	});
+	}
+	
