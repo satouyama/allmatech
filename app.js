@@ -149,7 +149,7 @@ if (params) {
 			     while(i < convResults.output.text.length){
 				socket.emit(
 					'msgDoBot',
-					{apelido: "BOT", mensagem: convResults.output.text[0]}
+					{apelido: "Atendimento Allmatech", mensagem: convResults.output.text[0]}
 				);
 				i++;
 			   }

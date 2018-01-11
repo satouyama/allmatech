@@ -80,21 +80,87 @@ img {
 }
 
 .dialogo{
-	width:100%;
-	height:auto;
-	margin-bottom:15px;
-	padding:10px;
-	background:#D8F0FE;
+    position: relative;
+    max-width:80%;
+    height:auto;
+    margin-bottom:15px;
+    padding:10px 25px 10px 10px;
+    background:#D8F0FE;
+    border-radius: 10px;
+    clear: both;
+}
+
+.msgCliente{
+    float: left;
+}
+
+.msgBot{
+    float: right;
+    background:#dfdfdf;
+}
+
+.imgCliente{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: -75px;
+    background-image: url(../Content/img/profile.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.imgBot{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: -75px;
+    background-image: url(../Content/img/manager.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.arrowCliente::before{
+    content: "";
+    position: absolute;
+    left: -15px;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #D8F0FE;
+}
+
+.arrowBot::before{
+    content: "";
+    position: absolute;
+    right: -15px;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #dfdfdf;
 }
 
 .dialogo h4{
-	font-size:15px;
+	font-size:16px;
 	font-weight: bold;
-	color:#8B7777;
+    color:#333;
+    padding-left: 10px;
 }
 
 .dialogo p{
-	font-size:12px;
-	padding-left:15px;
-	color:#8B7777;
+	font-size:13px;
+	padding-left:25px;
+	color:#666;
+}
+
+#conversa{
+    margin-left: 0; 
+    margin-right: 0; 
+    padding-left: 15px; 
+    padding-right: 15px;
 }
