@@ -33,7 +33,6 @@ if (params) {
 
 //conversation params api
 var conversation = watson.conversation({
-  url: 'https://gateway.watsonplatform.net/conversation/api/',
   username: '815f362f-51e6-4436-912b-85f75ccb93dc',
   password: '1tYjHndvzvQo',
   version: 'v1',
@@ -73,11 +72,11 @@ function callWatson(msgText){
 	  var dados = response.output.text;
 	  //como pegar esses dados aqui de cima ?
    }
-    
+
  });
 	}
 */
-	
+
 
 
 
@@ -90,7 +89,7 @@ app.set('io', io);
 /* criar a conexão por websocket */
 io.on('connection', function(socket){
 	console.log('Usuário conectou');
-	
+
 	socket.on('disconnect', function(){
 		console.log('Usuário desconectou');
 	});
@@ -100,7 +99,7 @@ io.on('connection', function(socket){
 
 		 var contexid = "";
          var text = msgCliente;
-
+            console.log(text);
 var params = {
 	input: text,
 	// context: {"conversation_id": conversation_id}
@@ -121,8 +120,8 @@ if (params) {
 		payload.context = params.context;
 	}
 }
-		  
-             
+
+
 		/* dialogo */
 		socket.emit(
 			'msgParaCliente',
@@ -130,21 +129,19 @@ if (params) {
 		);
 
 		//
-			
 		conversation.message(payload,function (err, convResults) {
 			console.log(convResults);
-		   contexid = convResults.context;
 
 		   //console.log(contexid);
-		   
+
 		   if (err) {
 			   return responseToRequest.send("Erro.");
 		   }
-		   
+
 		   if(convResults.context != null)
 			  conversation_id = convResults.context.conversation_id;
 		   if(convResults != null && convResults.output != null){
-			  
+
 			   var i = 0;
 			     while(i < convResults.output.text.length){
 				socket.emit(
@@ -154,12 +151,12 @@ if (params) {
 				i++;
 			   }
 		   }
-			   
+
 	   });
-			
+
 		//
 
-		
+
 		socket.broadcast.emit(
 			'msgParaCliente',
 			{apelido: data.apelido, mensagem: data.mensagem}

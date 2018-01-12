@@ -1,0 +1,32 @@
+
+<link href="Content/css/list.css" rel="stylesheet">
+<div id="users">
+    <input class="search" placeholder="Pesquisar" />
+    <button class="sort" data-sort="Nome">Procurar</button>
+    <table>
+            <tbody class="list">
+
+                    <tr>
+                     <td class="Nome">Nome</td><br/>
+                    <td class="Nome">E-mail</td><br/>
+                   <td class="Nome">Tipo de usuario</td><br/>
+                    <td class="born">Data</td><br/>
+                   <td class="Nome">Cidade</td><br/>
+            
+                    </tr>
+      <!-- IMPORTANT, class="list" have to be at tbody -->
+      <tbody class="list">
+       <%for(i=0; i < data.length; i++){%>
+        <tr>
+          <td class="Nome"><%=data[i].nome%></td><br/>
+         <td class="Nome"><%=data[i].email%></td><br/>
+         <td class="Nome"><%=data[i].tipo%></td><br/>
+          <td class="born"><%=data[i].data%></td><br/>
+          <td class="Nome"><%=data[i].cidade%></td><br/>
+
+        </tr>
+        <%}%>
+      </tbody>
+    </table>
+  
+  </div>
