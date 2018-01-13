@@ -126,7 +126,21 @@
 			$('#mensagem').val("");
 			$('#apelido_atualizado_nos_clientes').val(1);
 		});
+		// Msg inicial Do bot
+		var html = '';
 
+     html += '<div class="dialogo msgBot">';
+     html += '<span class="imgBot">' + '</span>';
+     html += '<span class="arrowBot">' + '</span>';
+     html += '<h4>' + 'Assistente Virtual' + '</h4>';
+     html += '<p>' + 'Olá Douglas, sou Assistente Virtual para dúvidas referentes aos produtos e serviços da Allmatech.' + '</p>';
+     html += '</div>';
+
+  $('#dialogos').append(html);
+
+  // finaliza aqui
+
+window.scrollTo(0, document.body.scrollHeight);
 		$('.input').keypress(function (e) {
 			if (e.which == 13) {
 				socket.emit(

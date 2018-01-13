@@ -58,39 +58,38 @@ io.on('connection', function(socket){
 			text: 'Oi'
 		}
 	}
-
 	console.log('Usuário conectou');
-
+	
 	socket.on('disconnect', function(){
 		console.log('Usuário desconectou');
 	});
-
+        
 	socket.on('msgParaServidor', function(data){
 		  var msgCliente = data.mensagem;
-		  
+		
 		/* dialogo */
 		socket.emit(
 			'msgParaCliente',
 			{apelido: data.apelido, mensagem: data.mensagem}
 		);
-
+         
 		//
 	//Atualizando a mensagem no Payload
 	payload.input.text = msgCliente;
 
 	//Enviando mensagem pro watson e obtendo resposta
 	conversation.message(payload, (error, response) => {
-		      
+		       var msgBot = response.output.text[0];
 		if(error){
 			//Se ocorrer algum erro, enviar mensagem de erro pro cliente
 			socket.emit('error',error.message)
 		}
 		else {
 			//Se não, Enviar a resposta do Watson para o cliente
-			 
+		       
 			socket.emit(
 				'msgDoBot',
-				{apelido: "Asistente Virtual", mensagem: response.output.text[0]}
+				{apelido: "Assistente Virtual", mensagem: response.output.text[0]}
 			);
 
 			//E atualizar o contexto do payload
