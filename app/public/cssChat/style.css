@@ -111,11 +111,11 @@ img {
 }
 
 .imgBot{
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 80px;
     position: absolute;
     right: -75px;
-    background-image: url(../Content/img/manager.png);
+    background-image: url(../Content/img/assistente.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;

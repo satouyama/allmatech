@@ -6,35 +6,13 @@ const request = require('request');
 
 // Callwatson api
 var watson = require('watson-developer-cloud');
-var contexid = "";
-var text = null;
-
-var params = {
-	input: text,
-	// context: {"conversation_id": conversation_id}
-	context:contexid
-};
-
-var payload = {
-	workspace_id: "d28d6c91-7c99-41fc-92c3-a307356bbf57"
-};
-
-
-if (params) {
-	if (params.input) {
-		params.input = params.input.replace("\n","");
-		payload.input = { "text": params.input };
-	}
-	if (params.context) {
-		payload.context = params.context;
-	}
-}
+//payload
 
 
 //conversation params api
 var conversation = watson.conversation({
-  username: '815f362f-51e6-4436-912b-85f75ccb93dc',
-  password: '1tYjHndvzvQo',
+  username: 'b41326bd-8e10-436f-9656-6fd8c349fef2',
+  password: 'exzZi1p3OlsA',
   version: 'v1',
   version_date: '2018-01-09',
 });
@@ -57,25 +35,11 @@ function buscaCep(cep, data){
 
 
 
-// chamada da api do conversation
 
-/*
-function callWatson(msgText){
-   conversation.message({
-   workspace_id: 'd28d6c91-7c99-41fc-92c3-a307356bbf57',
-   input: {'text': msgText}
-   },  function(err, response) {
-   if (err){
-	 console.log('error:', err);
-   }
-   else {
-	  var dados = response.output.text;
-	  //como pegar esses dados aqui de cima ?
-   }
 
- });
-	}
-*/
+
+
+
 
 
 
@@ -88,6 +52,13 @@ app.set('io', io);
 
 /* criar a conexão por websocket */
 io.on('connection', function(socket){
+	let payload = {
+		workspace_id : '1c2345d7-6ff1-4f62-9446-7b68508ca955',
+		input: {
+			text: 'Oi'
+		}
+	}
+
 	console.log('Usuário conectou');
 
 	socket.on('disconnect', function(){
@@ -95,33 +66,8 @@ io.on('connection', function(socket){
 	});
 
 	socket.on('msgParaServidor', function(data){
-		 var msgCliente = data.mensagem;
-
-		 var contexid = "";
-         var text = msgCliente;
-            console.log(text);
-var params = {
-	input: text,
-	// context: {"conversation_id": conversation_id}
-	context:contexid
-};
-
-var payload = {
-	workspace_id: "d28d6c91-7c99-41fc-92c3-a307356bbf57"
-};
-
-
-if (params) {
-	if (params.input) {
-		params.input = params.input.replace("\n","");
-		payload.input = { "text": params.input };
-	}
-	if (params.context) {
-		payload.context = params.context;
-	}
-}
-
-
+		  var msgCliente = data.mensagem;
+		  
 		/* dialogo */
 		socket.emit(
 			'msgParaCliente',
@@ -129,38 +75,34 @@ if (params) {
 		);
 
 		//
-		conversation.message(payload,function (err, convResults) {
-			console.log(convResults);
+	//Atualizando a mensagem no Payload
+	payload.input.text = msgCliente;
 
-		   //console.log(contexid);
+	//Enviando mensagem pro watson e obtendo resposta
+	conversation.message(payload, (error, response) => {
+		      
+		if(error){
+			//Se ocorrer algum erro, enviar mensagem de erro pro cliente
+			socket.emit('error',error.message)
+		}
+		else {
+			//Se não, Enviar a resposta do Watson para o cliente
+			 
+			socket.emit(
+				'msgDoBot',
+				{apelido: "Asistente Virtual", mensagem: response.output.text[0]}
+			);
 
-		   if (err) {
-			   return responseToRequest.send("Erro.");
-		   }
+			//E atualizar o contexto do payload
+			payload.context = response.context
 
-		   if(convResults.context != null)
-			  conversation_id = convResults.context.conversation_id;
-		   if(convResults != null && convResults.output != null){
-
-			   var i = 0;
-			     while(i < convResults.output.text.length){
-				socket.emit(
-					'msgDoBot',
-					{apelido: "Atendimento Allmatech", mensagem: convResults.output.text[0]}
-				);
-				i++;
-			   }
-		   }
-
-	   });
+		}
+	})
 
 		//
 
 
-		socket.broadcast.emit(
-			'msgParaCliente',
-			{apelido: data.apelido, mensagem: data.mensagem}
-		);
+		
 
 		/* participantes */
 		if(parseInt(data.apelido_atualizado_nos_clientes) == 0){

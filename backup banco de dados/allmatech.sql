@@ -41,7 +41,7 @@ CREATE TABLE `chat_usuario` (
 -- Extraindo dados da tabela `chat_usuario`
 --
 
-INSERT INTO `chat_usuario` (`id`, `nome`, `email`, `data`, `tipo`, `cidade`) VALUES
+INSERT INTO `chat_usuario` (`id`, `apelido`, `email`, `data`, `tipo`, `cidade`) VALUES
 (1, 'dsadasda', 'dasdasd@gmail.com', '2018-01-12 00:36:55', 'imobiliaria', 'Aguas Claras');
 
 --
