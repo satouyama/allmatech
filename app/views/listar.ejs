@@ -1,32 +1,39 @@
-
+<html>
 <link href="Content/css/list.css" rel="stylesheet">
 <div id="users">
     <input class="search" placeholder="Pesquisar" />
     <button class="sort" data-sort="Nome">Procurar</button>
-    <table>
+
+       <table>
+ 
             <tbody class="list">
 
                     <tr>
-                     <td class="Nome">Nome</td><br/>
-                    <td class="Nome">E-mail</td><br/>
-                   <td class="Nome">Tipo de usuario</td><br/>
-                    <td class="born">Data</td><br/>
-                   <td class="Nome">Cidade</td><br/>
+                     <td class="Nome">Nome</td>
+                    <td class="Nome">E-mail</td>
+                    <td class="Nome">Telefone</td>
+                   <td class="Nome">Tipo de usuario</td>
+                    <td class="born">Data</td>
+                   <td class="Nome">Cidade</td>
             
                     </tr>
+                  </tbody>
       <!-- IMPORTANT, class="list" have to be at tbody -->
       <tbody class="list">
        <%for(i=0; i < data.length; i++){%>
         <tr>
-          <td class="Nome"><%=data[i].apelido%></td><br/>
-         <td class="Nome"><%=data[i].email%></td><br/>
-         <td class="Nome"><%=data[i].tipo%></td><br/>
-          <td class="born"><%=data[i].data%></td><br/>
-          <td class="Nome"><%=data[i].cidade%></td><br/>
+          <td class="Nome"><%=data[i].apelido%></td>
+         <td class="Nome"><%=data[i].email%></td>
+         <td class="Nome"><%=data[i].telefone%></td>
+         <td class="Nome"><%=data[i].tipo%></td>
+          <td class="born"><%=data[i].data%></td>
+          <td class="Nome"><%=data[i].cidade%></td>
 
         </tr>
         <%}%>
       </tbody>
-    </table>
+      </table>
+    
   
   </div>
+  </html>

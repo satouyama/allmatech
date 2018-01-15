@@ -92,11 +92,13 @@ img {
 
 .msgCliente{
     float: left;
+    margin-left: 75px;
 }
 
 .msgBot{
     float: right;
     background:#dfdfdf;
+    margin-right: 75px;
 }
 
 .imgCliente{

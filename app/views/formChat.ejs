@@ -10,6 +10,7 @@
         crossorigin="anonymous">
     <!-- estilo -->
     <link href="Content/css/form.css" rel="stylesheet">
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
 </head>
 
 <body>
@@ -24,30 +25,33 @@
                     </div>
                     <div class="panel-body">
                         <form accept-charset="UTF-8" role="form" class="form-signin" action="/chat" method="post" id="form">
-                            <label class="panel-login">
+                            <label class="panel-login" style="display: block">
                                 <div class="login_result"></div>
                             </label>
                             <input placeholder="Nome" id="apelido" name="apelido" type="text">
                             <br/>
                             <input placeholder="e-mail" id="email" name="email" type="text">
                             <br/>
-                            <input placeholder="Número" id="numero" name="numero" type="tel">
-                            <br/>
-                            <input id="imobiliaria" name="tipo" type="radio" value="imobiliaria" checked style="width:15px; height: 15px; display: inline;"> &nbsp;
-                            <label for="imobiliaria"> Imbiliária</label>
-                            &nbsp;
-                            <input id="corretor" name="tipo" type="radio" value="corretor" style="width:15px; height: 15px; display: inline;"> &nbsp;
-                            <label for="corretor"> Corretor</label>
+                            <input placeholder="Número" id="numero" name="telefone" type="tel">
                             <br/>
                             <select name="cidade" id="cidade">
                                 <option value="Select" disabled selected>Selecione sua cidade</option>
-                                <option value="Aguas Claras">Aguas Claras</option>
-                                <option value="Lago Norte">Lago Norte</option>
-                                <option value="outra">outras</option>
+                                <option value="Aguas Claras" id="AguasClaras">Águas Claras</option>
+                                <option value="Lago Norte" id="LagoNorte">Lago Norte</option>
+                                <option value="outra" id="Outra">Outras</option>
                             </select>
                             <br/>
                             <input type="text" placeholder="Outra cidade" id="OutraCidade" name="outra">
-                            <br/><br/>
+                            <br/>
+                            <div id="marcador">
+                                <input id="imobiliaria" name="tipo" type="radio" value="imobiliaria" checked> &nbsp;
+                                <label for="imobiliaria"> Imbiliária</label>
+                                &nbsp;
+                                <input id="corretor" name="tipo" type="radio" value="corretor"> &nbsp;
+                                <label for="corretor"> Corretor</label>
+                            </div>
+                            <br/>
+                            <br/>
                             <fieldset>
                                 <button type="submit" class="btn btn-lg btn-success btn-block" id="entrar">Entrar »</button>
                             </fieldset>
@@ -64,6 +68,17 @@
             </div>
         </div>
     </div>
+    <script>     
+        $("select").change(function () {
+            var select = $("select option:selected");
+
+            if (select.val() == "outra") {
+                $('#OutraCidade').show("slow");
+            }
+            else {
+                $('#OutraCidade').hide("slow");
+            }
+        })
     </script>
 </body>
 

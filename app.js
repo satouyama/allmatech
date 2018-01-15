@@ -79,6 +79,7 @@ io.on('connection', function(socket){
 
 	//Enviando mensagem pro watson e obtendo resposta
 	conversation.message(payload, (error, response) => {
+		 console.log(response)
 		       var msgBot = response.output.text[0];
 		if(error){
 			//Se ocorrer algum erro, enviar mensagem de erro pro cliente

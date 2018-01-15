@@ -47,12 +47,6 @@
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1" id="btn_navbar_toggle">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
 				<a class="navbar-brand" href="#">Chat</a>
 			</div>
 
@@ -69,10 +63,10 @@
 		<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12" style="padding: 0;">
 			<div class="container">
 				<div class="row conversa" id="conversa">
-					<div class="col-md-2"></div>
-					<div class="col-md-8" id="dialogos">
+					<div class="col-md-1"></div>
+					<div class="col-md-10" id="dialogos">
 					</div>
-					<div class="col-md-2"></div>
+					<div class="col-md-1"></div>
 				</div>
 
 				<div class="row participantes" id="participantes" style="display:none">
@@ -133,7 +127,7 @@
      html += '<span class="imgBot">' + '</span>';
      html += '<span class="arrowBot">' + '</span>';
      html += '<h4>' + 'Assistente Virtual' + '</h4>';
-     html += '<p>' + 'Olá '+ '<%=dadosForm.apelido%>' + ',sou Assistente Virtual para dúvidas referentes aos produtos e serviços da Allmatech.' + '</p>';
+     html += '<p>' + 'Olá '+ '<%=dadosForm.apelido%>' + ',sou a Allma a assistente Virtual da Allmatech para dúvidas referentes aos produtos e serviços da Allmatech.' + '</p>';
      html += '</div>';
 
   $('#dialogos').append(html);

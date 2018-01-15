@@ -32,6 +32,7 @@ CREATE TABLE `chat_usuario` (
   `id` int(11) NOT NULL,
   `apelido` varchar(25) NOT NULL,
   `email` varchar(35) NOT NULL,
+  `telefone` varchar(20) not null, 
   `data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `tipo` varchar(15) NOT NULL,
   `cidade` varchar(20) NOT NULL
@@ -41,8 +42,8 @@ CREATE TABLE `chat_usuario` (
 -- Extraindo dados da tabela `chat_usuario`
 --
 
-INSERT INTO `chat_usuario` (`id`, `apelido`, `email`, `data`, `tipo`, `cidade`) VALUES
-(1, 'dsadasda', 'dasdasd@gmail.com', '2018-01-12 00:36:55', 'imobiliaria', 'Aguas Claras');
+INSERT INTO `chat_usuario` (`id`, `apelido`, `email`,`telefone`,`data`, `tipo`, `cidade`) VALUES
+(1, 'dsadasda', 'dasdasd@gmail.com','993660169', '2018-01-12 00:36:55', 'imobiliaria', 'Aguas Claras');
 
 --
 -- Indexes for dumped tables
